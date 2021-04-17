@@ -34,7 +34,7 @@
 - [ ] GitHub workflows
 
 ### QA Tools
-- [ ] Psalm
+- [X] Psalm
 - [ ] Deptrac
-- [ ] PhpCs
+- [X] PhpCs
 
