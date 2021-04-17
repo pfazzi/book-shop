@@ -5,7 +5,7 @@ namespace BookShop\Infrastructure\Doctrine\ViewModel;
 
 use Doctrine\ORM\EntityManagerInterface;
 
-class BookRepository implements \BookShop\Application\ViewModel\Book\BookRepository
+class AuthorRepository implements \BookShop\Application\ViewModel\Author\AuthorRepository
 {
     public function __construct(
         private EntityManagerInterface $entityManager
@@ -15,15 +15,11 @@ class BookRepository implements \BookShop\Application\ViewModel\Book\BookReposit
     public function findAll(): array
     {
         $query = $this->entityManager->createQuery(<<<DQL
-SELECT NEW BookShop\Application\ViewModel\Book\Book(
-    b.id,
-    b.title,
+SELECT NEW BookShop\Application\ViewModel\Author\Author(
     a.id,
     a.name
 )
-FROM BookShop\Domain\Book\Book b
-    JOIN BookShop\Domain\Author\Author a
-WHERE b.authorId = a.id
+FROM BookShop\Domain\Author\Author a
 DQL);
 
         return $query->getResult();

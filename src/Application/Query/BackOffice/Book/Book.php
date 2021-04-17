@@ -1,16 +1,18 @@
 <?php
 declare(strict_types=1);
 
-namespace BookShop\Application\ViewModel\Book;
+namespace BookShop\Application\Query\BackOffice\Book;
 
-use BookShop\Application\ViewModel\Author\Author;
-use JetBrains\PhpStorm\Pure;
+use BookShop\Application\Query\BackOffice\Author\Author;
 
+/**
+ * @psalm-immutable
+ */
 class Book
 {
     public Author $author;
 
-    #[Pure] public function __construct(
+    public function __construct(
         public int $id,
         public string $title,
         int $authorId,

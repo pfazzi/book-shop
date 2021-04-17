@@ -1,7 +1,12 @@
-api_controllers:
-    resource: ../../src/Infrastructure/Ports/Api/Controller
+shop_api_controllers:
+    resource: ../../src/Ports/ShopApi/Controller
     type: annotation
-    prefix: api/
+    prefix: shop/api/
+
+back_office_api_controllers:
+    resource: ../../src/Ports/BackOfficeApi/Controller
+    type: annotation
+    prefix: admin/api/
 
 kernel:
     resource: ../../src/Kernel.php

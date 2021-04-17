@@ -13,11 +13,17 @@ services:
     BookShop\:
         resource: '../src/'
         exclude:
-            - '../src/Application/ViewModel/Author/Author.php'
-            - '../src/Application/ViewModel/Book/Book.php'
+            - '../src/Application/Query/BackOffice/Author/Author.php'
+            - '../src/Application/Query/BackOffice/Book/Book.php'
+            - '../src/Application/Query/Shop/Book/Author.php'
+            - '../src/Application/Query/Shop/Book/Book.php'
             - '../src/Domain/'
             - '../src/Kernel.php'
 
-    BookShop\Infrastructure\Ports\Api\Controller\:
-        resource: '../src/Infrastructure/Ports/Api/Controller/'
+    BookShop\Ports\ShopApi\Controller\:
+        resource: '../src/Ports/ShopApi/Controller/'
         tags: ['controller.service_arguments']
+
+    BookShop\Ports\BackOfficeApi\Controller\:
+        resource: '../src/Ports/BackOfficeApi/Controller/'
+        tags: [ 'controller.service_arguments' ]

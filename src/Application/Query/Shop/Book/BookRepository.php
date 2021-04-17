@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace BookShop\Application\ViewModel\Book;
+namespace BookShop\Application\Query\Shop\Book;
 
 interface BookRepository
 {
     /**
      * @return Book[]
      */
-    public function listAll(): array;
+    public function findAll(): array;
 }
