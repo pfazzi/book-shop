@@ -6,4 +6,4 @@ stop:
 	symfony local:server:stop
 
 cs:
-	./vendor/bin/phpcbf
+	./vendor/bin/phpcbf -s
