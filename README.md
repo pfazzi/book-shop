@@ -35,6 +35,6 @@
 
 ### QA Tools
 - [X] Psalm
-- [ ] Deptrac
+- [x] Deptrac
 - [X] PhpCs
 

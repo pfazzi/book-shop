@@ -57,7 +57,7 @@ jobs:
         run: ./vendor/bin/psalm --output-format=github
 
       - name: Run Psalm
-        run: ./vendor/bin/deptrac
+        run: ./vendor/bin/deptrac --formatter=github-actions
 
 #      - name: Lint Symfony Container
 #        run: ./bin/console lint:container
