@@ -1,9 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
 namespace BookShop\Infrastructure\Doctrine\ViewModel\Shop;
 
-use BookShop\Application\Query\Shop\Book\Book;
 use Doctrine\ORM\EntityManagerInterface;
 
 class BookRepository implements \BookShop\Application\Query\Shop\Book\BookRepository

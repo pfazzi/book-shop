@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace BookShop\Domain\Author;
@@ -17,14 +18,12 @@ class Author
      */
     private int $id;
 
-    /**
-     * @ORM\Column(type="string")
-     */
+    /** @ORM\Column(type="string") */
     private string $name;
 
     public function __construct(int $id, string $name)
     {
-        $this->id = $id;
+        $this->id   = $id;
         $this->name = $name;
     }
 }

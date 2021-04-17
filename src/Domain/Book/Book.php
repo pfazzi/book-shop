@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace BookShop\Domain\Book;
@@ -17,20 +18,16 @@ class Book
      */
     private int $id;
 
-    /**
-     * @ORM\Column(type="string")
-     */
+    /** @ORM\Column(type="string") */
     private string $title;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
+    /** @ORM\Column(type="integer") */
     private int $authorId;
 
     public function __construct(int $id, string $title, int $authorId)
     {
-        $this->id = $id;
-        $this->title = $title;
+        $this->id       = $id;
+        $this->title    = $title;
         $this->authorId = $authorId;
     }
 }

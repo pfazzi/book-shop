@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace BookShop\Tests;
@@ -8,18 +9,23 @@ use BookShop\Domain\Book\Book;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
+use function assert;
+use function json_encode;
+
+use const JSON_PRETTY_PRINT;
+
 class PersistenceTest extends KernelTestCase
 {
     public function test_stuff(): void
     {
         self::bootKernel();
-        /** @var EntityManagerInterface $em */
         $em = self::$container->get(EntityManagerInterface::class);
+        assert($em instanceof EntityManagerInterface);
 
         $patrick = new Author(1, 'Patrick Luca Fazzi');
-        $john = new Author(2, 'John Doe');
+        $john    = new Author(2, 'John Doe');
 
-        $cleanCode = new Book(1, 'Clean Code', 2);
+        $cleanCode         = new Book(1, 'Clean Code', 2);
         $cleanArchitecture = new Book(2, 'Clean Architecture', 1);
 
         $em->persist($patrick);
@@ -45,6 +51,6 @@ WHERE b.authorId = a.id
 DQL);
 
         $result = $query->getResult();
-        echo (json_encode($result, JSON_PRETTY_PRINT));
+        echo json_encode($result, JSON_PRETTY_PRINT);
     }
 }
