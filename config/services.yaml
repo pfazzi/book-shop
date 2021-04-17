@@ -1,22 +1,15 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
-
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
 
 services:
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        autowire: true
+        autoconfigure: true
 
     BookShop\:
         resource: '../src/'
         exclude:
-            - '../src/Application/Query/BackOffice/Author/Author.php'
-            - '../src/Application/Query/BackOffice/Book/Book.php'
-            - '../src/Application/Query/Shop/Book/Author.php'
-            - '../src/Application/Query/Shop/Book/Book.php'
+            - '../src/Application/Command/'
+            - '../src/Application/Query/'
             - '../src/Domain/'
             - '../src/Kernel.php'
 
@@ -27,3 +20,15 @@ services:
     BookShop\Ports\BackOfficeApi\Controller\:
         resource: '../src/Ports/BackOfficeApi/Controller/'
         tags: [ 'controller.service_arguments' ]
+
+    BookShop\Application\Command\:
+        resource: '../src/Application/Command/**/**Handler.php'
+        tags: [ messenger.message_handler ]
+
+    BookShop\Application\Query\:
+        resource: '../src/Application/Query'
+        exclude:
+            - '../src/Application/Query/BackOffice/Author/Author.php'
+            - '../src/Application/Query/BackOffice/Book/Book.php'
+            - '../src/Application/Query/Shop/Book/Author.php'
+            - '../src/Application/Query/Shop/Book/Book.php'
