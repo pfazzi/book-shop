@@ -1,17 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace BookShop\Application\Query\BackOffice\Book;
-
-use BookShop\Application\Query\BackOffice\Author\Author;
+namespace BookShop\Application\Command\BackOffice\Book;
 
 /**
  * @psalm-immutable
  */
-class Book
+class AddBookToCatalog
 {
     public function __construct(
-        public int $id,
         public string $title,
         public int $authorId,
     ) {

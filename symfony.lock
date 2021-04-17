@@ -14,6 +14,9 @@
             "config/packages/test/dama_doctrine_test_bundle.yaml"
         ]
     },
+    "dealerdirect/phpcodesniffer-composer-installer": {
+        "version": "v0.7.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -28,6 +31,9 @@
     },
     "doctrine/cache": {
         "version": "1.10.2"
+    },
+    "doctrine/coding-standard": {
+        "version": "9.0.0"
     },
     "doctrine/collections": {
         "version": "1.6.7"
@@ -130,6 +136,9 @@
     "phpspec/prophecy": {
         "version": "1.13.0"
     },
+    "phpstan/phpdoc-parser": {
+        "version": "0.5.4"
+    },
     "phpunit/php-code-coverage": {
         "version": "9.2.6"
     },
@@ -219,6 +228,21 @@
     "sebastian/version": {
         "version": "3.0.2"
     },
+    "slevomat/coding-standard": {
+        "version": "7.0.3"
+    },
+    "squizlabs/php_codesniffer": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "0dc9cceda799fd3a08b96987e176a261028a3709"
+        },
+        "files": [
+            "phpcs.xml.dist"
+        ]
+    },
     "symfony/cache": {
         "version": "v5.2.6"
     },
@@ -307,9 +331,6 @@
     },
     "symfony/http-kernel": {
         "version": "v5.2.6"
-    },
-    "symfony/orm-pack": {
-        "version": "v2.1.0"
     },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.22.1"

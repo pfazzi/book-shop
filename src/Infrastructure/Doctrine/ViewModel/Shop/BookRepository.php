@@ -1,11 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace BookShop\Infrastructure\Doctrine\ViewModel;
+namespace BookShop\Infrastructure\Doctrine\ViewModel\Shop;
 
+use BookShop\Application\Query\Shop\Book\Book;
 use Doctrine\ORM\EntityManagerInterface;
 
-class BookRepository implements \BookShop\Application\ViewModel\Book\BookRepository
+class BookRepository implements \BookShop\Application\Query\Shop\Book\BookRepository
 {
     public function __construct(
         private EntityManagerInterface $entityManager
@@ -15,7 +16,7 @@ class BookRepository implements \BookShop\Application\ViewModel\Book\BookReposit
     public function findAll(): array
     {
         $query = $this->entityManager->createQuery(<<<DQL
-SELECT NEW BookShop\Application\ViewModel\Book\Book(
+SELECT NEW BookShop\Application\Query\Shop\Book\Book(
     b.id,
     b.title,
     a.id,

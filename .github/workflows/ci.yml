@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: mysql:5.6
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: app
+          MYSQL_USER: app
+          MYSQL_PASSWORD: app
+    steps:
+      - name: Set up PHP
+        uses: shivammathur/setup-php@2.9.0
+        with:
+          php-version: '8.0'
+          tools: composer:v2, psalm, cs2pr
+          coverage: none
+          extensions: pdo_mysql
+        env:
+          update: true
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Download dependencies
+        run: composer install -o --ignore-platform-reqs
+
+      - name: Run phpcs
+        run: ./vendor/bin/phpcs --report=checkstyle | cs2pr
+
+      - name: Run Psalm
+        run: psalm --output-format=github
+
+      - name: Lint Symfony Container
+        run: ./bin/console lint:container
+
+      - name: Lint config YAML
+        run: ./bin/console lint:yaml ./config --parse-tags
+
+      - name: Setup problem matchers for PHPUnit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Create DB Schema
+        run: ./bin/console doctrine:schema:update --force
+
+      - name: Run tests
+        run: ./vendor/bin/phpunit tests

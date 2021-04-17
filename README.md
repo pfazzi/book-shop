@@ -15,18 +15,26 @@
 - [ ] Command bus
 - [X] Separare i read model dal write model condividendo lo storage
 - [X] Collegare le entity attraverso gli id
-- [ ] Avere un command bus
 - [ ] Le entity effettuano il dispatch di eventi
-- [ ] Uno use case che si verifica a seguito di un evento di dominio
+- [ ] Use case che si verifica a seguito di eventi di dominio
 - [ ] Persistere gli eventi di dominio 
 - [ ] Reagire a eventi di dominio asincronamente
 - [ ] Esecuzione asincrona di comandi
+- [ ] Usare il DSL per la configurazione del IoC Container
 
 ### Infrastruttura
 
 - [X] Symfony Framework
+- [X] Symfony Framework
 - [X] Doctrine ORM
+- [ ] Doctrine Migrations
 - [X] MySql
 - [ ] Bref
 - [ ] AWS
+- [ ] GitHub workflows
+
+### QA Tools
+- [ ] Psalm
+- [ ] Deptrac
+- [ ] PhpCs
 

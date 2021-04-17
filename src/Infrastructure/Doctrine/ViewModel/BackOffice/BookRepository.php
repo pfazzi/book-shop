@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace BookShop\Infrastructure\Doctrine\ViewModel;
+namespace BookShop\Infrastructure\Doctrine\ViewModel\BackOffice;
 
 use Doctrine\ORM\EntityManagerInterface;
 
-class AuthorRepository implements \BookShop\Application\ViewModel\Author\AuthorRepository
+class BookRepository implements \BookShop\Application\Query\BackOffice\Book\BookRepository
 {
     public function __construct(
         private EntityManagerInterface $entityManager
@@ -15,11 +15,13 @@ class AuthorRepository implements \BookShop\Application\ViewModel\Author\AuthorR
     public function findAll(): array
     {
         $query = $this->entityManager->createQuery(<<<DQL
-SELECT NEW BookShop\Application\ViewModel\Author\Author(
-    a.id,
-    a.name
+SELECT NEW BookShop\Application\Query\BackOffice\Book\Book(
+    b.id,
+    b.title,
+    b.authorId
 )
-FROM BookShop\Domain\Author\Author a
+FROM BookShop\Domain\Book\Book b
+WHERE b.authorId = a.id
 DQL);
 
         return $query->getResult();
