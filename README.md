@@ -15,11 +15,15 @@
 - [X] Command bus
 - [X] Separare i read model dal write model condividendo lo storage
 - [X] Collegare le entity attraverso gli id
+- [X] Creazione di entity attraverso le factory
+- [X] Modellazione di liste di entità come Collection
 - [ ] Le entity effettuano il dispatch di eventi
 - [ ] Use case che si verifica a seguito di eventi di dominio
 - [ ] Persistere gli eventi di dominio 
 - [ ] Reagire a eventi di dominio asincronamente
-- [ ] Usare il DSL per la configurazione del IoC Container
+- [X] Usare il DSL per la configurazione del IoC Container
+- [X] Le eccezioni vengono create in maniera 'parlante'
+- [X] Immutabilità con analisi statica
 
 ### Infrastruttura
 

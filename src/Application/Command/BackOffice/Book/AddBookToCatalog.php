@@ -7,7 +7,7 @@ namespace BookShop\Application\Command\BackOffice\Book;
 /**
  * @psalm-immutable
  */
-class AddBookToCatalog
+final class AddBookToCatalog
 {
     public function __construct(
         public string $title,
