@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use BookShop\Application\Query;
+use BookShop\Domain\Customer\CustomerCollection;
+use BookShop\Domain\Customer\CustomerFactory;
+use BookShop\Domain\Customer\CustomerRepository;
 use BookShop\Kernel;
 use ReflectionClass;
 
@@ -51,4 +54,8 @@ return static function (ContainerConfigurator $configurator) use ($classToFileNa
         Query\Shop\Book\Author::class,
         Query\Shop\Book\Book::class,
     ));
+
+    $services->set(CustomerFactory::class);
+    $services->set(CustomerRepository::class);
+    $services->set(CustomerCollection::class);
 };

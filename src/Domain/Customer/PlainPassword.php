@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace BookShop\Domain\Customer;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @psalm-immutable
  */

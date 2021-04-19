@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace BookShop\Domain\Book;
 
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * @ORM\Entity()
@@ -13,18 +14,21 @@ class Book
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(type="uuid")
      */
-    private int $id;
+    private UuidInterface $id;
 
-    /** @ORM\Column(type="string") */
-    private string $title;
+    /**
+     * @ORM\Embedded(class="Title", columnPrefix=false)
+     */
+    private Title $title;
 
-    /** @ORM\Column(type="integer") */
-    private int $authorId;
+    /**
+     * @ORM\Column(type="uuid")
+     */
+    private UuidInterface $authorId;
 
-    public function __construct(int $id, string $title, int $authorId)
+    public function __construct(UuidInterface $id, Title $title, UuidInterface $authorId)
     {
         $this->id       = $id;
         $this->title    = $title;
