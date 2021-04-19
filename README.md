@@ -1,6 +1,6 @@
 ### User Stories
 
-- [ ] Come utente dello shop voglio registrarmi al fine di effettuare acquisti
+- [X] Come utente dello shop voglio registrarmi al fine di effettuare acquisti
 - [ ] Come utente dello shop voglio ricercare un libro per titolo o autore al fine di visualizzare il prezzo e la disponibilità
 - [ ] Come utente dello shop voglio leggere la quarta di copertina di un libro e visualizzare le informazioni al fine di valutarne l'acquisto
 - [ ] Come utente dello shop voglio aggiungere un libro al carrello al fine di acquistarlo
@@ -14,6 +14,7 @@
 - [X] Architettura esagonale
 - [X] Command bus
 - [X] Separare i read model dal write model condividendo lo storage
+- [X] Ogni view dell'applicazione ha il suo read model che evolve indipendentemente
 - [X] Collegare le entity attraverso gli id
 - [X] Creazione di entity attraverso le factory
 - [X] Modellazione di liste di entità come Collection
