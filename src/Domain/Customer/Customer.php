@@ -29,9 +29,9 @@ class Customer
         PlainPassword $plainPassword,
         Name $name
     ) {
-        $this->id = $id;
-        $this->email = $email;
+        $this->id            = $id;
+        $this->email         = $email;
         $this->plainPassword = $plainPassword;
-        $this->name = $name;
+        $this->name          = $name;
     }
 }

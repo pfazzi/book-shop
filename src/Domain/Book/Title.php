@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace BookShop\Domain\Book;
@@ -10,9 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Title
 {
-    /**
-     * @ORM\Column(type="string")
-     */
+    /** @ORM\Column(type="string") */
     private string $title;
 
     public function __construct(

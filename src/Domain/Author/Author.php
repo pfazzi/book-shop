@@ -18,9 +18,7 @@ class Author
      */
     private UuidInterface $id;
 
-    /**
-     * @ORM\Embedded(class="Name", columnPrefix=false)
-     */
+    /** @ORM\Embedded(class="Name", columnPrefix=false) */
     private Name $name;
 
     public function __construct(UuidInterface $id, Name $name)

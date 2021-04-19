@@ -18,14 +18,10 @@ class Book
      */
     private UuidInterface $id;
 
-    /**
-     * @ORM\Embedded(class="Title", columnPrefix=false)
-     */
+    /** @ORM\Embedded(class="Title", columnPrefix=false) */
     private Title $title;
 
-    /**
-     * @ORM\Column(type="uuid")
-     */
+    /** @ORM\Column(type="uuid") */
     private UuidInterface $authorId;
 
     public function __construct(UuidInterface $id, Title $title, UuidInterface $authorId)
