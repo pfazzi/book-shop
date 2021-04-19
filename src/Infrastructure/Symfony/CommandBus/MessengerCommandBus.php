@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace BookShop\Infrastructure\Symfony\Messenger;
+namespace BookShop\Infrastructure\Symfony\CommandBus;
 
+use BookShop\Application\Command\CommandBus;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-class CommandBus implements \BookShop\Application\Command\CommandBus
+class MessengerCommandBus implements CommandBus
 {
     public function __construct(
         private MessageBusInterface $messageBus
