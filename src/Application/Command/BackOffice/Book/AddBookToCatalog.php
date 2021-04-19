@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace BookShop\Application\Command\BackOffice\Book;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class AddBookToCatalog
 {
     public function __construct(

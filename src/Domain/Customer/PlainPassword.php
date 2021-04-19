@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace BookShop\Domain\Customer;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class PlainPassword
 {
     public function __construct(

@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace BookShop\Application\Command\BackOffice\Customer;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class SignUp
 {
     public function __construct(

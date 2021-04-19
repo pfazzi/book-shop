@@ -166,6 +166,9 @@
     "phpspec/prophecy": {
         "version": "1.13.0"
     },
+    "phpspec/prophecy-phpunit": {
+        "version": "v2.0.1"
+    },
     "phpstan/phpdoc-parser": {
         "version": "0.5.4"
     },

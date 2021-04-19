@@ -6,11 +6,7 @@ namespace BookShop\Domain\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Embeddable()
- *
- * @psalm-immutable
- */
+/** @ORM\Embeddable() @psalm-immutable */
 final class Name
 {
     public function __construct(

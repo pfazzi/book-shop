@@ -7,19 +7,17 @@ namespace BookShop\Domain\Customer;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
-/**
- * @ORM\Entity
- */
+/** @ORM\Entity */
 class Customer
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="uuid")
-     */
+    /** @ORM\Id @ORM\Column(type="uuid") */
     private UuidInterface $id;
+
     /** @ORM\Embedded(class="EmailAddress", columnPrefix=false) */
     private EmailAddress $email;
+
     private PlainPassword $plainPassword;
+
     /** @ORM\Embedded(class="Name", columnPrefix=false) */
     private Name $name;
 

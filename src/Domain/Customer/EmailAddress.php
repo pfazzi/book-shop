@@ -7,11 +7,7 @@ namespace BookShop\Domain\Customer;
 use Doctrine\ORM\Mapping as ORM;
 use Webmozart\Assert\Assert;
 
-/**
- * @ORM\Embeddable
- *
- * @psalm-immutable
- */
+/** @ORM\Embeddable @psalm-immutable */
 final class EmailAddress
 {
     public function __construct(

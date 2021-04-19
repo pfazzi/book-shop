@@ -7,15 +7,10 @@ namespace BookShop\Domain\Author;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
-/**
- * @ORM\Entity()
- */
+/** @ORM\Entity */
 class Author
 {
-    /**
-     * @ORM\Id()
-     * @ORM\Column(type="uuid")
-     */
+    /** @ORM\Id() @ORM\Column(type="uuid") */
     private UuidInterface $id;
 
     /** @ORM\Embedded(class="Name", columnPrefix=false) */
