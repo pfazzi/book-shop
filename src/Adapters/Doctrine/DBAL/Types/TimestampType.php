@@ -11,7 +11,7 @@ use LogicException;
 
 class TimestampType extends DateTimeImmutableType
 {
-    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): mixed
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
     {
         if (! $value instanceof Timestamp) {
             throw new LogicException();
@@ -20,7 +20,7 @@ class TimestampType extends DateTimeImmutableType
         return parent::convertToDatabaseValue($value->toDateTimeImmutable(), $platform);
     }
 
-    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): Timestamp
+    public function convertToPHPValue($value, AbstractPlatform $platform): Timestamp
     {
         $value = parent::convertToPHPValue($value, $platform);
 

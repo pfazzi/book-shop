@@ -13,7 +13,7 @@ use function is_string;
 
 abstract class StringableType extends StringType
 {
-    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): string
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): string
     {
         if (! $value instanceof Stringable) {
             throw new LogicException();
@@ -22,7 +22,7 @@ abstract class StringableType extends StringType
         return (string) $value;
     }
 
-    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): Stringable
+    public function convertToPHPValue($value, AbstractPlatform $platform): Stringable
     {
         if (! is_string($value)) {
             throw new LogicException();
