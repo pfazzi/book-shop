@@ -29,9 +29,9 @@ class CustomerRepository implements \BookShop\Domain\Customer\CustomerRepository
             WHERE c.emailAddress = :emailAddress
             DQL);
 
-        $query->setParameter('emailAddress', $emailAddress);
+        $query->setParameter('emailAddress', $emailAddress->toString());
 
-        $count = $query->getSingleScalarResult();
+        $count = (int) $query->getSingleScalarResult();
 
         return $count === 0;
     }

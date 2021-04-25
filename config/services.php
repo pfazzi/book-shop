@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use BookShop\Adapters\Doctrine\EventStore\EventPersister;
 use BookShop\Adapters\SystemClock;
 use BookShop\Application\Command\CommandBus;
 use BookShop\Application\Query\BackOffice\Author\Author;
@@ -83,4 +84,7 @@ return static function (ContainerConfigurator $configurator) use ($classToFileNa
         id: Clock::class,
         referencedId: SystemClock::class
     );
+
+    $services->set(EventPersister::class)
+        ->tag('messenger.message_handler', ['bus' => 'event_bus']);
 };

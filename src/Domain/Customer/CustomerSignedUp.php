@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace BookShop\Domain\Customer;
 
-use DateTimeImmutable;
+use BookShop\Domain\Common\Event\Event;
+use BookShop\Domain\Common\Timestamp;
 use Ramsey\Uuid\UuidInterface;
 
 /** @psalm-immutable  */
-class CustomerSignedUp
+class CustomerSignedUp extends Event
 {
     public function __construct(
-        public UuidInterface $id,
+        public UuidInterface $customerId,
+        public Timestamp $signedUpAt,
         public EmailAddress $email,
         public Name $name,
-        public DateTimeImmutable $signedUpAt
     ) {
     }
 }

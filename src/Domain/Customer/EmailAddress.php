@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace BookShop\Domain\Customer;
 
-use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
+use Stringable;
 use Webmozart\Assert\Assert;
 
-/** @ORM\Embeddable @psalm-immutable */
-final class EmailAddress implements JsonSerializable
+/** @psalm-immutable */
+final class EmailAddress implements JsonSerializable, Stringable
 {
     public function __construct(
-        /** @ORM\Column(type="string") */
         private string $address
     ) {
         Assert::email($this->address);
@@ -24,6 +23,16 @@ final class EmailAddress implements JsonSerializable
     }
 
     public function jsonSerialize(): string
+    {
+        return (string) $this;
+    }
+
+    public function toString(): string
+    {
+        return (string) $this;
+    }
+
+    public function __toString()
     {
         return $this->address;
     }

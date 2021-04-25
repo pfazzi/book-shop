@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace BookShop\Domain\Customer;
 
 use BookShop\Domain\Common\Clock;
+use BookShop\Domain\Common\Event\EventRecorder;
 use BookShop\Domain\Common\Event\EventRecordingCapabilities;
-use BookShop\Domain\Common\Event\Recorder as EventRecorder;
-use DateTimeImmutable;
+use BookShop\Domain\Common\Timestamp;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
@@ -19,28 +19,28 @@ class Customer implements EventRecorder
     /** @ORM\Id @ORM\Column(type="uuid") */
     private UuidInterface $id;
 
-    /** @ORM\Embedded(class="EmailAddress", columnPrefix=false) */
+    /** @ORM\Column(type="email_address")) */
     private EmailAddress $emailAddress;
 
     /** @ORM\Embedded(class="Name", columnPrefix=false) */
     private Name $name;
 
-    /** @ORM\Column(type="date_immutable")  */
-    private DateTimeImmutable $signedUpAt;
+    /** @ORM\Column(type="timestamp")  */
+    private Timestamp $signedUpAt;
 
     private function __construct(
         UuidInterface $id,
         EmailAddress $emailAddress,
         PlainPassword $plainPassword,
         Name $name,
-        DateTimeImmutable $signedUpAt,
+        Timestamp $signedUpAt,
     ) {
         $this->id           = $id;
         $this->emailAddress = $emailAddress;
         $this->name         = $name;
         $this->signedUpAt   = $signedUpAt;
 
-        $this->recordThat(new CustomerSignedUp($id, $emailAddress, $name, $signedUpAt));
+        $this->recordThat(new CustomerSignedUp($id, $signedUpAt, $emailAddress, $name));
     }
 
     public static function signUp(

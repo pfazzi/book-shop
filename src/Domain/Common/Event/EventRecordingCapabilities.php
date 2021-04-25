@@ -6,14 +6,17 @@ namespace BookShop\Domain\Common\Event;
 
 trait EventRecordingCapabilities
 {
-    /** @var array<object> */
+    /** @var array<array-key, Event> */
     private array $events = [];
 
-    private function recordThat(object $event): void
+    private function recordThat(Event $event): void
     {
         $this->events[] = $event;
     }
 
+    /**
+     * @return Event[]
+     */
     public function releaseEvents(): array
     {
         return $this->events;
