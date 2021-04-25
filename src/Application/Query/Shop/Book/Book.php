@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace BookShop\Application\Query\Shop\Book;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 class Book
 {
     public Author $author;

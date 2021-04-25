@@ -6,5 +6,7 @@ namespace BookShop\Domain\Customer;
 
 interface CustomerRepository
 {
+    public function getBy(EmailAddress $emailAddress): Customer;
+
     public function store(Customer $customer): void;
 }

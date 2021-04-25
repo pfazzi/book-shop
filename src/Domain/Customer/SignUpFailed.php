@@ -14,8 +14,12 @@ final class SignUpFailed extends RuntimeException
     ) {
     }
 
-    public static function becauseEmailHasAlreadyBeenUsed(EmailAddress $emailAddress): self
-    {
-        return new self('email_has_already_been_used', ['email' => $emailAddress]);
+    public static function becauseEmailHasAlreadyBeenUsed(
+        EmailAddress $emailAddress
+    ): self {
+        return new self(
+            'email_has_already_been_used',
+            ['email' => $emailAddress]
+        );
     }
 }

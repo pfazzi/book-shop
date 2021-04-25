@@ -7,3 +7,6 @@ stop:
 
 cs:
 	./vendor/bin/phpcbf -s
+
+deps:
+	./vendor/bin/deptrac --formatter=graphviz

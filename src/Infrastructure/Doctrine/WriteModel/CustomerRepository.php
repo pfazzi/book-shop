@@ -24,15 +24,28 @@ class CustomerRepository implements \BookShop\Domain\Customer\CustomerRepository
     public function containsUserWithEmail(EmailAddress $emailAddress): bool
     {
         $query = $this->entityManager->createQuery(<<<DQL
-SELECT COUNT(c)
-FROM BookShop\Domain\Customer\Customer c
-WHERE c.email = :email
-DQL);
+            SELECT COUNT(c)
+            FROM BookShop\Domain\Customer\Customer c
+            WHERE c.email = :email
+            DQL);
 
         $query->setParameter('email', $emailAddress);
 
         $count = $query->getSingleScalarResult();
 
         return $count > 0;
+    }
+
+    public function getBy(EmailAddress $emailAddress): Customer
+    {
+        $query = $this->entityManager->createQuery(<<<DQL
+SELECT c
+FROM BookShop\Domain\Customer\Customer c
+WHERE c.email = :email
+DQL);
+
+        $query->setParameter('email', $emailAddress);
+
+        return $query->getSingleResult();
     }
 }
