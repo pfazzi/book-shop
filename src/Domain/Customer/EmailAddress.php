@@ -32,7 +32,7 @@ final class EmailAddress implements JsonSerializable, Stringable
         return (string) $this;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->address;
     }

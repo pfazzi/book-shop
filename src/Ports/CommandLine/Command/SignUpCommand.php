@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SignUpCommand extends Command
 {
-    protected static $defaultName = 'book-shop:customer:sign-up';
+    protected static string $defaultName = 'book-shop:customer:sign-up';
 
     public function __construct(private CommandBus $commandBus)
     {
@@ -32,7 +32,7 @@ class SignUpCommand extends Command
             ->addArgument(name: 'lastName', mode: $required, description: 'Last Name');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @psalm-suppress PossiblyInvalidArgument */
         $this->commandBus->dispatch(new SignUp(
