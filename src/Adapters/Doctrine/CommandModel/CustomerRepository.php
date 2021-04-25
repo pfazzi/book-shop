@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BookShop\Infrastructure\Doctrine\CommandModel;
+namespace BookShop\Adapters\Doctrine\CommandModel;
 
 use BookShop\Domain\Customer\Customer;
 use BookShop\Domain\Customer\EmailAddress;

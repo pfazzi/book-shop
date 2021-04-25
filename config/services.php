@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use BookShop\Adapters\SystemClock;
 use BookShop\Application\Command\CommandBus;
 use BookShop\Application\Query\BackOffice\Author\Author;
 use BookShop\Application\Query\BackOffice\Book\Book;
@@ -11,7 +12,6 @@ use BookShop\Domain\Common\Clock;
 use BookShop\Domain\Common\Event\EventBus;
 use BookShop\Domain\Customer\CustomerRepository;
 use BookShop\Domain\Customer\UniqueEmailAddressSpecification;
-use BookShop\Infrastructure\SystemClock;
 use BookShop\Kernel;
 use ReflectionClass;
 
@@ -60,27 +60,27 @@ return static function (ContainerConfigurator $configurator) use ($classToFileNa
     ));
 
     $services->alias(
-        CommandBus::class,
-        \BookShop\Infrastructure\Symfony\Messenger\CommandBus::class
+        id: CommandBus::class,
+        referencedId: \BookShop\Adapters\Symfony\Messenger\CommandBus::class
     );
 
     $services->alias(
-        EventBus::class,
-        \BookShop\Infrastructure\Symfony\Messenger\EventBus::class
+        id: EventBus::class,
+        referencedId: \BookShop\Adapters\Symfony\Messenger\EventBus::class
     );
 
     $services->alias(
-        CustomerRepository::class,
-        \BookShop\Infrastructure\Doctrine\CommandModel\CustomerRepository::class
+        id: CustomerRepository::class,
+        referencedId: \BookShop\Adapters\Doctrine\CommandModel\CustomerRepository::class
     );
 
     $services->alias(
-        UniqueEmailAddressSpecification::class,
-        \BookShop\Infrastructure\Doctrine\CommandModel\CustomerRepository::class
+        id: UniqueEmailAddressSpecification::class,
+        referencedId: \BookShop\Adapters\Doctrine\CommandModel\CustomerRepository::class
     );
 
     $services->alias(
-        Clock::class,
-        SystemClock::class
+        id: Clock::class,
+        referencedId: SystemClock::class
     );
 };

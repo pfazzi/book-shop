@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BookShop\Infrastructure;
+namespace BookShop\Adapters;
 
 use BookShop\Domain\Common\Clock;
 use DateTimeImmutable;

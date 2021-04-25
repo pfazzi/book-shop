@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BookShop\Infrastructure\Doctrine\QueryModel\Shop;
+namespace BookShop\Adapters\Doctrine\QueryModel\Shop;
 
 use Doctrine\ORM\EntityManagerInterface;
 

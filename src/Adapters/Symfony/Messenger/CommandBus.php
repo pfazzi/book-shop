@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BookShop\Infrastructure\Symfony\Messenger;
+namespace BookShop\Adapters\Symfony\Messenger;
 
 use Symfony\Component\Messenger\MessageBusInterface;
 

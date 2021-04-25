@@ -5,10 +5,10 @@ layers:
     collectors:
       - type: className
         regex: .*Ports.*
-  - name: Infrastructure
+  - name: Adapters
     collectors:
       - type: className
-        regex: .*Infrastructure.*
+        regex: .*Adapters.*
   - name: Application
     collectors:
       - type: className
@@ -21,7 +21,7 @@ layers:
 ruleset:
   Ports:
     - Application
-  Infrastructure:
+  Adapters:
     - Application
     - Domain
   Application:
