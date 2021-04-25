@@ -13,11 +13,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SignUpCommand extends Command
 {
-    protected static string $defaultName = 'book-shop:customer:sign-up';
-
     public function __construct(private CommandBus $commandBus)
     {
-        parent::__construct();
+        parent::__construct('book-shop:customer:sign-up');
     }
 
     protected function configure(): void
