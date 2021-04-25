@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use BookShop\Application\Query;
-use BookShop\Domain\Customer\CustomerCollection;
-use BookShop\Domain\Customer\CustomerFactory;
+use BookShop\Application\Command\CommandBus;
+use BookShop\Application\Query\BackOffice\Author\Author;
+use BookShop\Application\Query\BackOffice\Book\Book;
+use BookShop\Domain\Common\Clock;
+use BookShop\Domain\Common\Event\EventBus;
 use BookShop\Domain\Customer\CustomerRepository;
+use BookShop\Domain\Customer\UniqueEmailAddressSpecification;
+use BookShop\Infrastructure\SystemClock;
 use BookShop\Kernel;
 use ReflectionClass;
 
@@ -43,19 +47,40 @@ return static function (ContainerConfigurator $configurator) use ($classToFileNa
     $services->load(
         namespace: 'BookShop\Application\Command\\',
         resource: '../src/Application/Command/**/**Handler.php'
-    )->tag('messenger.message_handler');
+    )->tag('messenger.message_handler', ['bus' => 'command_bus']);
 
     $services->load(
         namespace: 'BookShop\Application\Query\\',
         resource: '../src/Application/Query/'
     )->exclude($classesToFileNames(
-        Query\BackOffice\Author\Author::class,
-        Query\BackOffice\Book\Book::class,
-        Query\Shop\Book\Author::class,
-        Query\Shop\Book\Book::class,
+        Author::class,
+        Book::class,
+        \BookShop\Application\Query\Shop\Book\Author::class,
+        \BookShop\Application\Query\Shop\Book\Book::class,
     ));
 
-    $services->set(CustomerFactory::class);
-    $services->set(CustomerRepository::class);
-    $services->set(CustomerCollection::class);
+    $services->alias(
+        CommandBus::class,
+        \BookShop\Infrastructure\Symfony\Messenger\CommandBus::class
+    );
+
+    $services->alias(
+        EventBus::class,
+        \BookShop\Infrastructure\Symfony\Messenger\EventBus::class
+    );
+
+    $services->alias(
+        CustomerRepository::class,
+        \BookShop\Infrastructure\Doctrine\CommandModel\CustomerRepository::class
+    );
+
+    $services->alias(
+        UniqueEmailAddressSpecification::class,
+        \BookShop\Infrastructure\Doctrine\CommandModel\CustomerRepository::class
+    );
+
+    $services->alias(
+        Clock::class,
+        SystemClock::class
+    );
 };

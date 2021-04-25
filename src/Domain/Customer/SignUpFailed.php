@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace BookShop\Domain\Customer;
 
+use JsonSerializable;
 use RuntimeException;
 
 final class SignUpFailed extends RuntimeException
 {
+    /**
+     * @param array<string, (string|int|JsonSerializable)> $context
+     */
     public function __construct(
         private string $reason,
         private array $context,

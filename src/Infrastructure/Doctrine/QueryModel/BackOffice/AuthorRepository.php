@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BookShop\Infrastructure\Doctrine\ViewModel\BackOffice;
+namespace BookShop\Infrastructure\Doctrine\QueryModel\BackOffice;
 
 use Doctrine\ORM\EntityManagerInterface;
 

@@ -18,7 +18,7 @@
 - [X] Collegare le entity attraverso gli id
 - [X] Creazione di entity attraverso le factory
 - [X] Modellazione di liste di entità come Collection
-- [ ] Le entity effettuano il dispatch di eventi
+- [X] Le entity effettuano il dispatch di eventi
 - [ ] Use case che si verifica a seguito di eventi di dominio
 - [ ] Persistere gli eventi di dominio 
 - [ ] Reagire a eventi di dominio asincronamente
@@ -28,7 +28,6 @@
 
 ### Infrastruttura
 
-- [X] Symfony Framework
 - [X] Symfony Framework
 - [X] Doctrine ORM
 - [ ] Doctrine Migrations

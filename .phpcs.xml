@@ -20,5 +20,6 @@
     <rule ref="Doctrine">
         <exclude name="SlevomatCodingStandard.ControlStructures.AssignmentInCondition.AssignmentInCondition"/>
         <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification"/>
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.FirstParamSpacing"/>
     </rule>
 </ruleset>
