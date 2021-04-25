@@ -20,7 +20,7 @@
 - [X] Modellazione di liste di entità come Collection
 - [X] Le entity effettuano il dispatch di eventi
 - [ ] Use case che si verifica a seguito di eventi di dominio
-- [ ] Persistere gli eventi di dominio 
+- [X] Persistere gli eventi di dominio 
 - [ ] Reagire a eventi di dominio asincronamente
 - [X] Usare il DSL per la configurazione del IoC Container
 - [X] Le eccezioni vengono create in maniera 'parlante'
