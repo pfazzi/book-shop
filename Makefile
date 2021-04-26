@@ -10,3 +10,6 @@ cs:
 
 deps:
 	./vendor/bin/deptrac --formatter=graphviz
+
+consume_events:
+	symfony console messenger:consume async -vv

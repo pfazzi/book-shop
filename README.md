@@ -1,3 +1,7 @@
+# Book Shop
+
+A POC for DDD, CQRS, applications using Symfony as framework and running with php8
+
 ### User Stories
 
 - [X] Come utente dello shop voglio registrarmi al fine di effettuare acquisti
@@ -28,7 +32,7 @@
 
 ### Infrastruttura
 
-- [X] Symfony Framework
+- [X] Symfony Framework 
 - [X] Doctrine ORM
 - [ ] Doctrine Migrations
 - [X] MySql

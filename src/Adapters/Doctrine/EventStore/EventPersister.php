@@ -20,5 +20,6 @@ class EventPersister
         $event = Event::wrap($event, new DateTimeImmutable());
 
         $this->entityManager->persist($event);
+        $this->entityManager->flush();
     }
 }

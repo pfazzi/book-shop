@@ -6,6 +6,7 @@ namespace BookShop\Ports\CommandLine\Command;
 
 use BookShop\Application\Command\BackOffice\Customer\SignUp;
 use BookShop\Application\Command\CommandBus;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -23,18 +24,18 @@ class SignUpCommand extends Command
         $required = InputOption::VALUE_REQUIRED;
 
         $this
-            ->addArgument(name: 'id', mode: $required, description: 'ID')
             ->addArgument(name: 'emailAddress', mode: $required, description: 'Email Address')
             ->addArgument(name: 'password', mode: $required, description: 'Password')
             ->addArgument(name: 'firstName', mode: $required, description: 'First Name')
-            ->addArgument(name: 'lastName', mode: $required, description: 'Last Name');
+            ->addArgument(name: 'lastName', mode: $required, description: 'Last Name')
+            ->addArgument(name: 'id', mode: InputOption::VALUE_OPTIONAL, description: 'ID');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @psalm-suppress PossiblyInvalidArgument */
         $this->commandBus->dispatch(new SignUp(
-            $input->getArgument('id'),
+            $input->getArgument('id') ?: Uuid::uuid4()->toString(),
             $input->getArgument('emailAddress'),
             $input->getArgument('password'),
             $input->getArgument('firstName'),
