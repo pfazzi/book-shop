@@ -24,6 +24,7 @@ class SignUpCommand extends Command
         $required = InputOption::VALUE_REQUIRED;
 
         $this
+            ->setDescription('Signs up a new user.')
             ->addArgument(name: 'emailAddress', mode: $required, description: 'Email Address')
             ->addArgument(name: 'password', mode: $required, description: 'Password')
             ->addArgument(name: 'firstName', mode: $required, description: 'First Name')
