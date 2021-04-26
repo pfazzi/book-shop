@@ -4,14 +4,14 @@ A POC for DDD, CQRS, applications using Symfony as framework and running with ph
 
 ### User Stories
 
+- [ ] Come store manager voglio aggiungere/modificare/rimuovere un libro dal catalogo
+- [ ] Come store manager voglio aggiungere/modificare un autore
+- [ ] Come store manager voglio visualizzare gli ordini
 - [X] Come utente dello shop voglio registrarmi al fine di effettuare acquisti
 - [ ] Come utente dello shop voglio ricercare un libro per titolo o autore al fine di visualizzare il prezzo e la disponibilità
 - [ ] Come utente dello shop voglio leggere la quarta di copertina di un libro e visualizzare le informazioni al fine di valutarne l'acquisto
 - [ ] Come utente dello shop voglio aggiungere un libro al carrello al fine di acquistarlo
 - [ ] Come utente dello shop voglio pagare un ordine
-- [ ] Come store manager voglio aggiungere/modificare/rimuovere un libro dal catalogo
-- [ ] Come store manager voglio aggiungere/modificare un autore
-- [ ] Come store manager voglio visualizzare gli ordini
 
 ### Pattern
 
@@ -25,7 +25,7 @@ A POC for DDD, CQRS, applications using Symfony as framework and running with ph
 - [X] Le entity effettuano il dispatch di eventi
 - [ ] Use case che si verifica a seguito di eventi di dominio
 - [X] Persistere gli eventi di dominio 
-- [ ] Reagire a eventi di dominio asincronamente
+- [X] Reagire a eventi di dominio asincronamente
 - [X] Usare il DSL per la configurazione del IoC Container
 - [X] Le eccezioni vengono create in maniera 'parlante'
 - [X] Immutabilità con analisi statica
