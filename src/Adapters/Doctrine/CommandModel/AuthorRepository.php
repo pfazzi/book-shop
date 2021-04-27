@@ -23,6 +23,11 @@ class AuthorRepository implements \BookShop\Domain\Author\AuthorRepository
 
     public function get(UuidInterface $id): Author
     {
-        $this->entityManager->find(Author::class, $id) ?? throw new AuthorNotFound();
+        $author = $this->entityManager->find(Author::class, $id);
+        if ($author instanceof Author) {
+            return $author;
+        }
+
+        throw new AuthorNotFound();
     }
 }

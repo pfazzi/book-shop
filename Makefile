@@ -11,5 +11,8 @@ cs:
 deps:
 	./vendor/bin/deptrac --formatter=graphviz
 
+psalm:
+	./vendor/bin/psalm
+
 consume_events:
 	symfony console messenger:consume async -vv

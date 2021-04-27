@@ -9,6 +9,7 @@ use BookShop\Adapters\SystemClock;
 use BookShop\Application\Command\CommandBus;
 use BookShop\Application\Query\BackOffice\Author\Author;
 use BookShop\Application\Query\BackOffice\Book\Book;
+use BookShop\Domain\Author\AuthorRepository;
 use BookShop\Domain\Common\Clock;
 use BookShop\Domain\Common\Event\EventBus;
 use BookShop\Domain\Customer\CustomerRepository;
@@ -73,6 +74,11 @@ return static function (ContainerConfigurator $configurator) use ($classToFileNa
     $services->alias(
         id: CustomerRepository::class,
         referencedId: \BookShop\Adapters\Doctrine\CommandModel\CustomerRepository::class
+    );
+
+    $services->alias(
+        id: AuthorRepository::class,
+        referencedId: \BookShop\Adapters\Doctrine\CommandModel\AuthorRepository::class
     );
 
     $services->alias(
