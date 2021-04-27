@@ -18,7 +18,7 @@ class Name implements Stringable
         return new self($name);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->name;
     }
