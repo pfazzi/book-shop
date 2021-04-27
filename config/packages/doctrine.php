@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use BookShop\Adapters\Doctrine\DBAL\Types\AuthorNameType;
 use BookShop\Adapters\Doctrine\DBAL\Types\EmailAddressType;
 use BookShop\Adapters\Doctrine\DBAL\Types\TimestampType;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -16,6 +17,7 @@ return static function (ContainerConfigurator $container): void {
                 'types' => [
                     'timestamp' => TimestampType::class,
                     'email_address' => EmailAddressType::class,
+                    'author_name' => AuthorNameType::class,
                 ],
             ],
             'orm' => [

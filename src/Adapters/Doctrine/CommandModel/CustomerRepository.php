@@ -36,7 +36,7 @@ class CustomerRepository implements \BookShop\Domain\Customer\CustomerRepository
         return $count === 0;
     }
 
-    public function getBy(EmailAddress $emailAddress): Customer
+    public function get(EmailAddress $emailAddress): Customer
     {
         $query = $this->entityManager->createQuery(<<<DQL
             SELECT c

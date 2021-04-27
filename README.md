@@ -4,8 +4,8 @@ A POC for DDD, CQRS, applications using Symfony as framework and running with ph
 
 ### User Stories
 
-- [ ] Come store manager voglio aggiungere/modificare/rimuovere un libro dal catalogo
 - [ ] Come store manager voglio aggiungere/modificare un autore
+- [ ] Come store manager voglio aggiungere/modificare/rimuovere un libro dal catalogo
 - [ ] Come store manager voglio visualizzare gli ordini
 - [X] Come utente dello shop voglio registrarmi al fine di effettuare acquisti
 - [ ] Come utente dello shop voglio ricercare un libro per titolo o autore al fine di visualizzare il prezzo e la disponibilità

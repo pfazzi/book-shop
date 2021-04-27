@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace BookShop\Application\Query\BackOffice\Author;
+namespace BookShop\Application\Command\BackOffice\Author;
 
 /** @psalm-immutable */
-class Author
+class AddAuthor
 {
     public function __construct(
         public string $id,
-        public string $name
+        public string $name,
     ) {
     }
 }
