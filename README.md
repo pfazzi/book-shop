@@ -1,6 +1,6 @@
 # Book Shop
 
-A POC for DDD, CQRS, applications using Symfony as framework and running with php8
+A POC for DDD and CQRS applications using Symfony as framework and running with php8
 
 ### User Stories
 
