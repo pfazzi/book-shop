@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace BookShop\Adapters\Doctrine\QueryModel\BackOffice;
 
+use BookShop\Application\Query\BackOffice\Author\Author;
 use Doctrine\ORM\EntityManagerInterface;
 
 class AuthorRepository implements \BookShop\Application\Query\BackOffice\Author\AuthorRepository
@@ -13,7 +14,7 @@ class AuthorRepository implements \BookShop\Application\Query\BackOffice\Author\
     ) {
     }
 
-    public function findAll(): array
+    public function getAll(): array
     {
         $query = $this->entityManager->createQuery(<<<DQL
 SELECT NEW  BookShop\Application\Query\BackOffice\Author\Author(
@@ -24,5 +25,21 @@ FROM BookShop\Domain\Author\Author a
 DQL);
 
         return $query->getResult();
+    }
+
+    public function get(string $id): Author
+    {
+        $query = $this->entityManager->createQuery(<<<DQL
+SELECT NEW  BookShop\Application\Query\BackOffice\Author\Author(
+    a.id,
+    a.name
+)
+FROM BookShop\Domain\Author\Author a
+WHERE a.id = :id
+DQL);
+
+        $query->setParameter('id', $id);
+
+        return $query->getSingleResult();
     }
 }

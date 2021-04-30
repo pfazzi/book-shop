@@ -9,5 +9,7 @@ interface AuthorRepository
     /**
      * @return Author[]
      */
-    public function findAll(): array;
+    public function getAll(): array;
+
+    public function get(string $id): Author;
 }

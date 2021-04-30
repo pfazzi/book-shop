@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace BookShop\Application\Query\BackOffice\Book;
+namespace BookShop\Application\Command\BackOffice\Book;
 
 /** @psalm-immutable */
-class Book
+class EditBook
 {
     public function __construct(
-        public int $id,
-        public string $isbn,
+        public string $id,
         public string $title,
         public int $authorId,
     ) {

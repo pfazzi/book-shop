@@ -7,18 +7,16 @@ namespace BookShop\Domain\Book;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
-/**
- * @ORM\Entity
- */
+/** @ORM\Entity */
 class Book
 {
     /** @ORM\Id @ORM\Column(type="uuid") */
     private UuidInterface $id;
 
-    /** @ORM\Embedded(class="Isbn") */
+    /** @ORM\Column(type="isbn") */
     private Isbn $isbn;
 
-    /** @ORM\Embedded(class="Title", columnPrefix=false) */
+    /** @ORM\Column(type="title") */
     private Title $title;
 
     /** @ORM\Column(type="uuid") */

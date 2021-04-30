@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 use BookShop\Adapters\Doctrine\DBAL\Types\AuthorNameType;
 use BookShop\Adapters\Doctrine\DBAL\Types\EmailAddressType;
+use BookShop\Adapters\Doctrine\DBAL\Types\IsbnType;
 use BookShop\Adapters\Doctrine\DBAL\Types\TimestampType;
+use BookShop\Adapters\Doctrine\DBAL\Types\TitleType;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $container): void {
@@ -18,6 +20,8 @@ return static function (ContainerConfigurator $container): void {
                     'timestamp' => TimestampType::class,
                     'email_address' => EmailAddressType::class,
                     'author_name' => AuthorNameType::class,
+                    'isbn' => IsbnType::class,
+                    'title' => TitleType::class,
                 ],
             ],
             'orm' => [

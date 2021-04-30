@@ -21,20 +21,18 @@ class SignUpCommand extends Command
 
     protected function configure(): void
     {
-        $required = InputOption::VALUE_REQUIRED;
-
         $this
             ->setDescription('Signs up a new user.')
-            ->addArgument(name: 'emailAddress', mode: $required, description: 'Email Address')
-            ->addArgument(name: 'password', mode: $required, description: 'Password')
-            ->addArgument(name: 'firstName', mode: $required, description: 'First Name')
-            ->addArgument(name: 'lastName', mode: $required, description: 'Last Name')
+            ->addArgument(name: 'emailAddress', mode: InputOption::VALUE_REQUIRED, description: 'Email Address')
+            ->addArgument(name: 'password', mode: InputOption::VALUE_REQUIRED, description: 'Password')
+            ->addArgument(name: 'firstName', mode: InputOption::VALUE_REQUIRED, description: 'First Name')
+            ->addArgument(name: 'lastName', mode: InputOption::VALUE_REQUIRED, description: 'Last Name')
             ->addArgument(name: 'id', mode: InputOption::VALUE_OPTIONAL, description: 'ID');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        /** @psalm-suppress PossiblyInvalidArgument */
+        /** @psalm-suppress PossiblyInvalidArgument|PossiblyNullArgument */
         $this->commandBus->dispatch(new SignUp(
             $input->getArgument('id') ?: Uuid::uuid4()->toString(),
             $input->getArgument('emailAddress'),

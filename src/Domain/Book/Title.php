@@ -4,17 +4,26 @@ declare(strict_types=1);
 
 namespace BookShop\Domain\Book;
 
-use Doctrine\ORM\Mapping as ORM;
+use Stringable;
 
-/** @ORM\Embeddable */
-class Title
+/** @psalm-immutable  */
+class Title implements Stringable
 {
-    /** @ORM\Column(type="string") */
     private string $title;
 
     public function __construct(
         string $title
     ) {
         $this->title = $title;
+    }
+
+    public static function fromName(string $title): self
+    {
+        return new self($title);
+    }
+
+    public function __toString(): string
+    {
+        return $this->title;
     }
 }

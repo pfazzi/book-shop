@@ -9,5 +9,7 @@ interface BookRepository
     /**
      * @return Book[]
      */
-    public function findAll(): array;
+    public function getAll(): array;
+
+    public function get(string $id): Book;
 }

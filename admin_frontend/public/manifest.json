@@ -1,0 +1,9 @@
+{
+  "short_name": "Book Shop Admin",
+  "name": "Book Shop Admin",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

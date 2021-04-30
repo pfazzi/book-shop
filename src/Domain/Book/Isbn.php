@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace BookShop\Domain\Book;
 
-use Doctrine\ORM\Mapping as ORM;
+use Stringable;
 
-/** @ORM\Embeddable @psalm-immutable */
-class Isbn
+/** @psalm-immutable */
+class Isbn implements Stringable
 {
     public function __construct(
-        /** @ORM\Column(type="string") */
         public string $code
     ) {
     }
@@ -18,5 +17,10 @@ class Isbn
     public static function fromString(string $code): self
     {
         return new self($code);
+    }
+
+    public function __toString(): string
+    {
+        return $this->code;
     }
 }

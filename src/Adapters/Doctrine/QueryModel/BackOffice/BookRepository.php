@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace BookShop\Adapters\Doctrine\QueryModel\BackOffice;
 
+use BookShop\Application\Query\BackOffice\Book\Book;
 use Doctrine\ORM\EntityManagerInterface;
 
 class BookRepository implements \BookShop\Application\Query\BackOffice\Book\BookRepository
@@ -13,17 +14,35 @@ class BookRepository implements \BookShop\Application\Query\BackOffice\Book\Book
     ) {
     }
 
-    public function findAll(): array
+    public function getAll(): array
     {
         $query = $this->entityManager->createQuery(<<<DQL
 SELECT NEW BookShop\Application\Query\BackOffice\Book\Book(
     b.id,
+    b.isbn,
     b.title,
     b.authorId
 )
 FROM BookShop\Domain\Book\Book b
-WHERE b.authorId = a.id
 DQL);
+
+        return $query->getResult();
+    }
+
+    public function get(string $id): Book
+    {
+        $query = $this->entityManager->createQuery(<<<DQL
+SELECT NEW BookShop\Application\Query\BackOffice\Book\Book(
+    b.id,
+    b.isbn,
+    b.title,
+    b.authorId
+)
+FROM BookShop\Domain\Book\Book b
+WHERE b.id = :id
+DQL);
+
+        $query->setParameter('id', $id);
 
         return $query->getResult();
     }
