@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use function count;
 use function json_decode;
+use function sprintf;
 
 #[Route(path: '/books')]
 class BooksController
@@ -30,7 +31,10 @@ class BooksController
         $unit       = 'authors';
         $rangeStart = 0;
         $rangeEnd   = count($books);
-        $response->headers->set('Content-Range', "$unit $rangeStart-$rangeEnd/$rangeEnd");
+        $response->headers->set(
+            'Content-Range',
+            sprintf('%s %d-%d/%d', $unit, $rangeStart, $rangeEnd, $rangeEnd)
+        );
 
         return $response;
     }
