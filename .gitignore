@@ -24,3 +24,4 @@ phpcbf.phar
 ###> qossmic/deptrac-shim ###
 /.deptrac.cache
 ###< qossmic/deptrac-shim ###
+/node_modules/

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use BookShop\Adapters\Doctrine\DBAL\Types\AuthorNameType;
-use BookShop\Adapters\Doctrine\DBAL\Types\EmailAddressType;
-use BookShop\Adapters\Doctrine\DBAL\Types\IsbnType;
-use BookShop\Adapters\Doctrine\DBAL\Types\TimestampType;
-use BookShop\Adapters\Doctrine\DBAL\Types\TitleType;
+use BookShop\Infrastructure\Adapters\Doctrine\DBAL\Types\AuthorNameType;
+use BookShop\Infrastructure\Adapters\Doctrine\DBAL\Types\EmailAddressType;
+use BookShop\Infrastructure\Adapters\Doctrine\DBAL\Types\IsbnType;
+use BookShop\Infrastructure\Adapters\Doctrine\DBAL\Types\TimestampType;
+use BookShop\Infrastructure\Adapters\Doctrine\DBAL\Types\TitleType;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $container): void {
@@ -39,8 +39,8 @@ return static function (ContainerConfigurator $container): void {
                     'EventStore' => [
                         'is_bundle' => false,
                         'type' => 'annotation',
-                        'dir' => '%kernel.project_dir%/src/Adapters/Doctrine/EventStore',
-                        'prefix' => 'BookShop\\Adapters\\Doctrine\\EventStore',
+                        'dir' => '%kernel.project_dir%/src/Infrastructure/Adapters/Doctrine/EventStore',
+                        'prefix' => 'BookShop\\Infrastructure\\Adapters\\Doctrine\\EventStore',
                         'alias' => 'EventStore',
                     ],
                 ],

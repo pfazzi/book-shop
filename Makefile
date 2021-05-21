@@ -1,6 +1,7 @@
 up:
 	symfony serve -d
 	docker-compose up -d
+	cd admin_frontend && yarn start
 
 stop:
 	symfony local:server:stop

@@ -10,9 +10,9 @@ class Book
     public Author $author;
 
     public function __construct(
-        public int $id,
+        public string $id,
         public string $title,
-        int $authorId,
+        string $authorId,
         string $authorName
     ) {
         $this->author = new Author($authorId, $authorName);

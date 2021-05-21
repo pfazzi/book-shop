@@ -8,10 +8,10 @@ namespace BookShop\Application\Query\BackOffice\Book;
 class Book
 {
     public function __construct(
-        public int $id,
+        public string $id,
         public string $isbn,
         public string $title,
-        public int $authorId,
+        public string $authorId,
     ) {
     }
 }

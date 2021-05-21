@@ -11,21 +11,22 @@ use BookShop\Domain\Book\Title;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-final class AddBookHandler
+final class EditBookHandler
 {
     public function __construct(private BookRepository $bookRepository)
     {
     }
 
-    public function __invoke(AddBook $command): void
+    public function __invoke(EditBook $command): void
     {
-        $newBook = new Book(
-            Uuid::fromString($command->id),
+        $book = $this->bookRepository->get(Uuid::fromString($command->id));
+
+        $book->changeData(
             Isbn::fromString($command->isbn),
             Title::fromName($command->title),
             Uuid::fromString($command->authorId)
         );
 
-        $this->bookRepository->store($newBook);
+        $this->bookRepository->store($book);
     }
 }

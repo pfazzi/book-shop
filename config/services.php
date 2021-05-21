@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use BookShop\Adapters\Doctrine\EventStore\EventPersister;
-use BookShop\Adapters\SystemClock;
+use BookShop\Infrastructure\Adapters\Doctrine\EventStore\EventPersister;
+use BookShop\Infrastructure\Adapters\SystemClock;
 use BookShop\Application\Command\CommandBus;
 use BookShop\Application\Query\BackOffice\Author\Author;
 use BookShop\Application\Query\BackOffice\Book\Book;
@@ -38,13 +38,13 @@ return static function (ContainerConfigurator $configurator) use ($classToFileNa
         ]);
 
     $services->load(
-        namespace: 'BookShop\Ports\ShopApi\Controller\\',
-        resource: '../src/Ports/ShopApi/Controller/'
+        namespace: 'BookShop\Infrastructure\Ports\ShopApi\Controller\\',
+        resource: '../src/Infrastructure/Ports/ShopApi/Controller/'
     )->tag('controller.service_arguments');
 
     $services->load(
-        namespace: 'BookShop\Ports\BackOfficeApi\Controller\\',
-        resource: '../src/Ports/BackOfficeApi/Controller/'
+        namespace: 'BookShop\Infrastructure\Ports\BackOfficeApi\Controller\\',
+        resource: '../src/Infrastructure/Ports/BackOfficeApi/Controller/'
     )->tag('controller.service_arguments');
 
     $services->load(
@@ -64,32 +64,32 @@ return static function (ContainerConfigurator $configurator) use ($classToFileNa
 
     $services->alias(
         id: CommandBus::class,
-        referencedId: \BookShop\Adapters\Symfony\Messenger\CommandBus::class
+        referencedId: \BookShop\Infrastructure\Adapters\Symfony\Messenger\CommandBus::class
     );
 
     $services->alias(
         id: EventBus::class,
-        referencedId: \BookShop\Adapters\Symfony\Messenger\EventBus::class
+        referencedId: \BookShop\Infrastructure\Adapters\Symfony\Messenger\EventBus::class
     );
 
     $services->alias(
         id: CustomerRepository::class,
-        referencedId: \BookShop\Adapters\Doctrine\CommandModel\CustomerRepository::class
+        referencedId: \BookShop\Infrastructure\Adapters\Doctrine\CommandModel\CustomerRepository::class
     );
 
     $services->alias(
         id: AuthorRepository::class,
-        referencedId: \BookShop\Adapters\Doctrine\CommandModel\AuthorRepository::class
+        referencedId: \BookShop\Infrastructure\Adapters\Doctrine\CommandModel\AuthorRepository::class
     );
 
     $services->alias(
         id: BookRepository::class,
-        referencedId: \BookShop\Adapters\Doctrine\CommandModel\BookRepository::class
+        referencedId: \BookShop\Infrastructure\Adapters\Doctrine\CommandModel\BookRepository::class
     );
 
     $services->alias(
         id: UniqueEmailAddressSpecification::class,
-        referencedId: \BookShop\Adapters\Doctrine\CommandModel\CustomerRepository::class
+        referencedId: \BookShop\Infrastructure\Adapters\Doctrine\CommandModel\CustomerRepository::class
     );
 
     $services->alias(

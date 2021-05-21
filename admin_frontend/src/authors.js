@@ -1,12 +1,13 @@
 import * as React from "react";
-import { List, Datagrid, Edit, Create, SimpleForm, TextField, TextInput, EditButton } from 'react-admin';
+import {List, Datagrid, Edit, Create, SimpleForm, TextField, TextInput, EditButton, required} from 'react-admin';
 import BookIcon from '@material-ui/icons/Book';
+import { v4 as uuidv4 } from 'uuid';
+
 export const AuthorIcon = BookIcon;
 
 export const AuthorList = (props) => (
     <List {...props}>
         <Datagrid>
-            <TextField source="id" />
             <TextField source="name" />
             <EditButton basePath="/authors" />
         </Datagrid>
@@ -20,8 +21,7 @@ const AuthorTitle = ({ record }) => {
 export const AuthorEdit = (props) => (
     <Edit title={<AuthorTitle />} {...props}>
         <SimpleForm>
-            <TextInput disabled source="id" />
-            <TextInput source="name" />
+            <TextInput source="name" validate={[required()]} />
         </SimpleForm>
     </Edit>
 );
@@ -29,8 +29,8 @@ export const AuthorEdit = (props) => (
 export const AuthorCreate = (props) => (
     <Create title="Create a Author" {...props}>
         <SimpleForm>
-            <TextInput source="id" />
-            <TextInput source="name" />
+            <TextInput source="id" initialValue={uuidv4()} validate={[required()]} disabled />
+            <TextInput source="name" validate={[required()]} />
         </SimpleForm>
     </Create>
 );

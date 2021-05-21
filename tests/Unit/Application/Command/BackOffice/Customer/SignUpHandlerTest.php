@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BookShop\Tests\Unit\Application\Command\BackOffice\Customer;
 
-use BookShop\Adapters\SystemClock;
+use BookShop\Infrastructure\Adapters\SystemClock;
 use BookShop\Application\Command\BackOffice\Customer\SignUp;
 use BookShop\Application\Command\BackOffice\Customer\SignUpHandler;
 use BookShop\Domain\Common\Event\EventBus;

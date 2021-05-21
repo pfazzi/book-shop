@@ -33,4 +33,14 @@ class Book
         $this->title    = $title;
         $this->authorId = $authorId;
     }
+
+    public function changeData(
+        Isbn $isbn,
+        Title $title,
+        UuidInterface $authorId
+    ): void {
+        $this->isbn     = $isbn;
+        $this->title    = $title;
+        $this->authorId = $authorId;
+    }
 }

@@ -9,8 +9,9 @@ final class AddBook
 {
     public function __construct(
         public string $id,
+        public string $isbn,
         public string $title,
-        public int $authorId,
+        public string $authorId,
     ) {
     }
 }

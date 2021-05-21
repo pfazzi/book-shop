@@ -1,10 +1,10 @@
 shop_api_controllers:
-    resource: ../../src/Ports/ShopApi/Controller
+    resource: ../../src/Infrastructure/Ports/ShopApi/Controller
     type: annotation
     prefix: shop/api/
 
 back_office_api_controllers:
-    resource: ../../src/Ports/BackOfficeApi/Controller
+    resource: ../../src/Infrastructure/Ports/BackOfficeApi/Controller
     type: annotation
     prefix: admin/api/
 
