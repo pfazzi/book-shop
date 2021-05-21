@@ -40,6 +40,7 @@ A POC for DDD and CQRS applications using Symfony as framework and running with 
 - [ ] Bref
 - [ ] AWS
 - [X] GitHub workflows
+- [ ] OpenAPI
 
 ### QA Tools
 - [X] Psalm
