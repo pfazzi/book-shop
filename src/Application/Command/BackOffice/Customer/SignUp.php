@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace BookShop\Application\Command\BackOffice\Customer;
 
+/** @todo move to store folder */
 /** @psalm-immutable */
 final class SignUp
 {
