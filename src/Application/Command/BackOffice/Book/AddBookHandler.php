@@ -9,7 +9,6 @@ use BookShop\Domain\Book\BookRepository;
 use BookShop\Domain\Book\Isbn;
 use BookShop\Domain\Book\Title;
 use Ramsey\Uuid\Uuid;
-use Ramsey\Uuid\UuidInterface;
 
 final class AddBookHandler
 {

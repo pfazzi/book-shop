@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use BookShop\Infrastructure\Adapters\Doctrine\EventStore\EventPersister;
-use BookShop\Infrastructure\Adapters\SystemClock;
 use BookShop\Application\Command\CommandBus;
 use BookShop\Application\Query\BackOffice\Author\Author;
 use BookShop\Application\Query\BackOffice\Book\Book;
@@ -15,6 +13,8 @@ use BookShop\Domain\Common\Clock;
 use BookShop\Domain\Common\Event\EventBus;
 use BookShop\Domain\Customer\CustomerRepository;
 use BookShop\Domain\Customer\UniqueEmailAddressSpecification;
+use BookShop\Infrastructure\Adapters\Doctrine\EventStore\EventPersister;
+use BookShop\Infrastructure\Adapters\SystemClock;
 use BookShop\Kernel;
 use ReflectionClass;
 

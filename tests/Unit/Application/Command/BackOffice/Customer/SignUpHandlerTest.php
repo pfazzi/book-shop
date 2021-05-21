@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BookShop\Tests\Unit\Application\Command\BackOffice\Customer;
 
-use BookShop\Infrastructure\Adapters\SystemClock;
 use BookShop\Application\Command\BackOffice\Customer\SignUp;
 use BookShop\Application\Command\BackOffice\Customer\SignUpHandler;
 use BookShop\Domain\Common\Event\EventBus;
@@ -14,6 +13,7 @@ use BookShop\Domain\Customer\CustomerSignedUp;
 use BookShop\Domain\Customer\EmailAddress;
 use BookShop\Domain\Customer\SignUpFailed;
 use BookShop\Domain\Customer\UniqueEmailAddressSpecification;
+use BookShop\Infrastructure\Adapters\SystemClock;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
