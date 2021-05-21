@@ -30,9 +30,12 @@ class SignUpCommand extends Command
             ->addArgument(name: 'id', mode: InputOption::VALUE_OPTIONAL, description: 'ID');
     }
 
+    /**
+     * @psalm-suppress PossiblyNullArgument
+     * @psalm-suppress PossiblyInvalidArgument
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        /** @psalm-suppress PossiblyInvalidArgument|PossiblyNullArgument */
         $this->commandBus->dispatch(new SignUp(
             $input->getArgument('id') ?: Uuid::uuid4()->toString(),
             $input->getArgument('emailAddress'),
