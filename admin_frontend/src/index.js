@@ -8,7 +8,7 @@ import { AuthorList, AuthorEdit, AuthorCreate, AuthorIcon } from './authors';
 import { BookList, BookEdit, BookCreate } from './books';
 
 render(
-    <Admin dataProvider={simpleRestProvider('https://localhost:8000/admin/api')}>
+    <Admin dataProvider={simpleRestProvider('http://localhost:8000/admin/api')}>
         <Resource name="authors" list={AuthorList} edit={AuthorEdit} create={AuthorCreate} icon={AuthorIcon}/>
         <Resource name="books" list={BookList} edit={BookEdit} create={BookCreate} icon={BookIcon}/>
     </Admin>,
