@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21be611b68149120203288d02085604a",
+    "content-hash": "4fb1dbeebcb11d3b1a114a41c632ff3c",
     "packages": [
         {
             "name": "brick/math",
@@ -6868,23 +6868,23 @@
         },
         {
             "name": "qossmic/deptrac-shim",
-            "version": "0.13.0",
+            "version": "0.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/qossmic/deptrac-shim.git",
-                "reference": "fb549413b7fadb165bf911586ef7b41281f4a9bb"
+                "reference": "29f44a37271466c5328e24c2f90f488f4279b656"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/qossmic/deptrac-shim/zipball/fb549413b7fadb165bf911586ef7b41281f4a9bb",
-                "reference": "fb549413b7fadb165bf911586ef7b41281f4a9bb",
+                "url": "https://api.github.com/repos/qossmic/deptrac-shim/zipball/29f44a37271466c5328e24c2f90f488f4279b656",
+                "reference": "29f44a37271466c5328e24c2f90f488f4279b656",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-tokenizer": "*",
                 "ext-zlib": "*",
-                "php": "^7.2 || 8.0.*"
+                "php": "^7.4 || 8.0.* || 8.1.*"
             },
             "replace": {
                 "qossmic/deptrac": "self.version"
@@ -6905,14 +6905,19 @@
                     "name": "Simon Mönch",
                     "email": "simon.moench@qossmic.com",
                     "role": "maintainer"
+                },
+                {
+                    "name": "Denis Brumann",
+                    "email": "denis.brumann@qossmic.com",
+                    "role": "maintainer"
                 }
             ],
             "description": "deptrac phar distribution",
             "support": {
                 "issues": "https://github.com/qossmic/deptrac-shim/issues",
-                "source": "https://github.com/qossmic/deptrac-shim/tree/0.13.0"
+                "source": "https://github.com/qossmic/deptrac-shim/tree/0.18.0"
             },
-            "time": "2021-04-16T13:40:43+00:00"
+            "time": "2021-11-24T19:29:27+00:00"
         },
         {
             "name": "sebastian/cli-parser",
