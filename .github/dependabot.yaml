@@ -4,7 +4,7 @@ version: 2
 
 updates:
   - package-ecosystem: "composer"
-    target-branch: "master"
+    target-branch: "main"
     directory: "/"
     versioning-strategy: "increase-if-necessary"
     open-pull-requests-limit: 10
