@@ -23,7 +23,7 @@
         "symfony/framework-bundle": "5.2.*",
         "symfony/messenger": "5.2.*",
         "symfony/proxy-manager-bridge": "5.2.*",
-        "symfony/yaml": "5.2.*"
+        "symfony/yaml": "5.3.*"
     },
     "require-dev": {
         "dama/doctrine-test-bundle": "^6.5",
