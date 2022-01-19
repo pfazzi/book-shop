@@ -28,7 +28,7 @@ class BooksController
 
         $response = new JsonResponse($books);
 
-        $unit       = 'authors';
+        $unit       = 'books';
         $rangeStart = 0;
         $rangeEnd   = count($books);
         $response->headers->set(
